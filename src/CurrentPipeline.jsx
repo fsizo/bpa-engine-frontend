@@ -1,9 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import PipelinePreview from './PipelinePreview'
+import { Label } from '@fluentui/react/lib/Label';
 
 
-export default function Stages() {
+export default function Stages(props) {
 
     const [stages, setStages] = useState([])
 
@@ -18,7 +19,8 @@ export default function Stages() {
 
 
     return (
-        <div style={{ overflow: "auto" }}>
+        <div style={{ paddingLeft: "10px", paddingTop: "50px" }}>
+            <Label theme={props.theme} style={{ fontFamily: props.theme.fonts.xxLarge.fontFamily, fontSize: props.theme.fonts.xxLarge.fontSize }}>Pipeline Preview:</Label>
             <PipelinePreview stages={stages} />
         </div>
     )

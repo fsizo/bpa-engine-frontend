@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { FileUploader } from "react-drag-drop-files";
+import { Label } from '@fluentui/react/lib/Label';
 
-function Upload() {
-    const fileTypes = ["PNG","JPG", "PDF","WAV"];
+
+
+function Upload(props) {
+    const fileTypes = ["PNG", "JPG", "PDF", "WAV"];
 
     const [image, setImage] = useState(null);
     const [show, setShow] = useState(false);
- 
+
     const [showFail, setShowFail] = useState(false);
+
+    const labelStyle = { fontFamily: props.theme.fonts.xxLarge.fontFamily, fontSize: props.theme.fonts.xxLarge.fontSize, paddingLeft: "20px" }
+    const smallLabelStyle = { fontFamily: props.theme.fonts.xLarge.fontFamily, fontSize: props.theme.fonts.xLarge.fontSize, padding: "20px", width:"1000px" }
+
 
 
     const handleChange = async (file) => {
-        console.log(file)
         try {
             if (file.name) {
                 console.log(`image : ${file}`)
@@ -38,12 +44,15 @@ function Upload() {
 
 
     return (
-        <div style={{ padding: "300px" }}>
-            <h3 style={{ color: 'black', paddingBottom: "10px" }}>Upload a document to Blob Storage</h3>
-            <p style={{ color: 'black', paddingBottom: "50px",width: "600px" }}>Before any insights can be viewed by a pattern, one or more documents must be uploaded.  The documents will be copied to Blob Storage which will trigger a Function App to process them.  The processing can take some time and the insights will not appear immediately.</p>
-            <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
+        <div style={{ paddingLeft: "10px", paddingTop: "50px" }}>
+            <Label style={labelStyle}>Upload a document to Blob Storage</Label>
+            <p style={smallLabelStyle}>Before any insights can be viewed by a pattern, one or more documents must be uploaded.  The documents will be copied to Blob Storage which will trigger a Function App to process them.  The processing can take some time and the insights will not appear immediately.</p>
+            <div style={{padding:"20px"}}>
+                <FileUploader styles={smallLabelStyle} handleChange={handleChange} name="file" types={fileTypes} />
+            </div>
             
-            
+
+
         </div>
     )
 }

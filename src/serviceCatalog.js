@@ -1,6 +1,11 @@
 import pdf from './images/pdf.png'
 import logo from './images/imagetbd.png'
 import sentiment from './images/sentimentDemoLogo.svg'
+import detectLanguage from './images/detectLanguageDemoLogo.svg'
+import ner from './images/nerDemoLogo.svg'
+import ocr from './images/ocrLogo.svg'
+import summarize from './images/summarizationDemoLogo.svg'
+import tts from './images/textToSpeech.svg'
 
 export const sc = {
     "pdf": {
@@ -40,7 +45,7 @@ export const sc = {
         "outputTypes": [
             "text"
         ],
-        "image": logo,
+        "image": ocr,
         "label": "Optical Character Recognition (OCR) Service",
         "name": "ocr",
         "serviceSpecificConfig": {},
@@ -54,10 +59,12 @@ export const sc = {
         "outputTypes": [
             "text"
         ],
-        "image": logo,
+        "image": detectLanguage,
         "label": "Language Translation Service",
         "name": "translate",
-        "serviceSpecificConfig": {},
+        "serviceSpecificConfig": {
+            to : "string"
+        },
         "serviceSpecificConfigDefaults": {}
     },
     "formrecLayoutService": {
@@ -95,7 +102,7 @@ export const sc = {
         "outputTypes": [
             "text"
         ],
-        "image": logo,
+        "image": summarize,
         "label": "Language Studio Text Summarization",
         "name": "summarize",
         "bpaServiceId": "abc123",
@@ -109,7 +116,7 @@ export const sc = {
         "outputTypes": [
             "languageNer"
         ],
-        "image": logo,
+        "image": ner,
         "label": "Language Studio Named Entity Recognition",
         "name": "languageNer",
         "bpaServiceId": "abc123",
@@ -125,7 +132,7 @@ export const sc = {
         "outputTypes": [
             "text"
         ],
-        "image": logo,
+        "image": tts,
         "label": "Speech To Text Service",
         "name": "stt",
         "serviceSpecificConfig": {},
