@@ -266,13 +266,13 @@ export default function Stages(props) {
 
     const onDone = async () => {
         try{
-            await axios.post('/api/config', { stages: stages.slice(1, stages.length), id: "1" })
-            props.onSelectContent({currentTarget : {id : "CURRENT_PIPELINE"}})
-            setOptions([])
+            await axios.post('/api/config', { stages: stages.slice(1, stages.length), id: "1" })  
         } catch(err) {
             console.log(err)
         }
 
+        props.onSelectContent({currentTarget : {id : "CURRENT_PIPELINE"}})
+        setOptions([])
     }
 
     const getMatchingOptions = (previousStage, allowAny) => {
